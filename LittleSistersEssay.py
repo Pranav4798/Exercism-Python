@@ -44,15 +44,14 @@ def clean_up_spacing(sentence):
 
 def replace_word_choice(sentence, old_word, new_word):
     """Replace a word in the provided sentence with a new one.
-
     :param sentence: str - a sentence to replace words in.
     :param old_word: str - word to replace.
     :param new_word: str - replacement word.
     :return: str - input sentence with new words in place of old words.
     """
 
-    x = sentence.replace(old_word, new_word)
-    return x
+    word = sentence.replace(old_word, new_word)
+    return word
 
 # print(replace_word_choice("I bake good cakes.", "good", "amazing"))
 # print(replace_word_choice("I bake good cakes.", "good", "the best"))
