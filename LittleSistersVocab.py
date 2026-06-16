@@ -27,12 +27,12 @@ def make_word_groups(vocab_words):
     For example: list('en', 'close', 'joy', 'lighten'),
     produces the following string: 'en :: enclose :: enjoy :: enlighten'.
     """
-    A = []
-    l = len(vocab_words)
-    for i in range(1, l):
-        wrd = vocab_words[0] + vocab_words[i]
-        A.append(wrd)
-    full_list = [vocab_words[0]] + A
+    word = []
+    len_voc = len(vocab_words)
+    for posit in range(1, len_voc):
+        wrd = vocab_words[0] + vocab_words[posit]
+        word.append(wrd)
+    full_list = [vocab_words[0]] + word
     return ' :: '.join(full_list)
 
 # print(make_word_groups(['pre', 'serve', 'dispose', 'position']))
@@ -49,29 +49,26 @@ def remove_suffix_ness(word):
     """
 
     
-    w = word[:-4]
-    if w.endswith('i'):
-        return w[:-1] + 'y'
-    else:
-        return w
+    wrd_rev = word[:-4]
+    if wrd_rev.endswith('i'):
+        return wrd_rev[:-1] + 'y'
+    return wrd_rev    
 
 # print(remove_suffix_ness("heaviness"))
 # print(remove_suffix_ness("sadness"))
 
 def adjective_to_verb(sentence, index):
     """Change the adjective within the sentence to a verb.
-
     :param sentence: str - that uses the word in sentence.
     :param index: int - index of the word to remove and transform.
     :return: str - word that changes the extracted adjective to a verb.
-
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
-    a = sentence.split()
-    w = a[index]
-    w = w.strip(".,!")
-    w = w + 'en'
-    return w
+    words = sentence.split()
+    posit = words[index]
+    posit = posit.strip('.,!')
+    posit = posit + 'en'
+    return posit
 
 # print(adjective_to_verb('I need to make that bright.', -1 ))
 # print(adjective_to_verb('It got dark as the sun set.', 2))
