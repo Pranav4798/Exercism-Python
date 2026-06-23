@@ -13,14 +13,10 @@ def add_me_to_the_queue(express_queue, normal_queue, ticket_type, person_name):
     if ticket_type == 0:
         normal_queue.append(person_name)
         return normal_queue
-    elif ticket_type == 1:
+    if ticket_type == 1:
         express_queue.append(person_name)
         return express_queue
-    else:
-        return None
-    
-# print(add_me_to_the_queue(express_queue=["Tony", "Bruce"], normal_queue=["RobotGuy", "WW"], ticket_type=1, person_name="RichieRich"))
-# print(add_me_to_the_queue(express_queue=["Tony", "Bruce"], normal_queue=["RobotGuy", "WW"], ticket_type=0, person_name="HawkEye"))
+    return None
 
 
 def find_my_friend(queue, friend_name):
@@ -31,12 +27,11 @@ def find_my_friend(queue, friend_name):
     :return: int - index at which the friends name was found.
     """
 
-    l = len(queue)
-    for i in range(l):
-        if friend_name == queue[i]:
-            return i
-        
-# print(find_my_friend(queue=["Natasha", "Steve", "T'challa", "Wanda", "Rocket"], friend_name="Steve"))       
+    len_que = len(queue)
+    for frnd in range(len_que):
+        if friend_name == queue[frnd]:
+            return frnd
+             
 
 
 def add_me_with_my_friends(queue, index, person_name):
@@ -51,7 +46,6 @@ def add_me_with_my_friends(queue, index, person_name):
     queue.insert(index, person_name)
     return queue
 
-# print(add_me_with_my_friends(queue=["Natasha", "Steve", "T'challa", "Wanda", "Rocket"], index=1, person_name="Bucky"))
 
 
 def remove_the_mean_person(queue, person_name):
@@ -65,7 +59,6 @@ def remove_the_mean_person(queue, person_name):
     queue.remove(person_name)
     return queue
 
-# print(remove_the_mean_person(queue=["Natasha", "Steve", "Eltran", "Wanda", "Rocket"], person_name="Eltran"))
 
 
 def how_many_namefellows(queue, person_name):
@@ -79,7 +72,6 @@ def how_many_namefellows(queue, person_name):
     cnt = queue.count(person_name)
     return cnt
 
-# print(how_many_namefellows(queue=["Natasha", "Steve", "Eltran", "Natasha", "Rocket"], person_name="Natasha"))
 
 def remove_the_last_person(queue):
     """Remove the person in the last index from the queue and return their name.vg
@@ -92,7 +84,6 @@ def remove_the_last_person(queue):
     queue.pop()
     return lastp
 
-# print(remove_the_last_person(queue=["Natasha", "Steve", "Eltran", "Natasha", "Rocket"]))
 
 def sorted_names(queue):
     """Sort the names in the queue in alphabetical order and return the result.
@@ -101,7 +92,4 @@ def sorted_names(queue):
     :return: list - copy of the queue in alphabetical order.
     """
 
-    sorted(queue)
-    return queue
-
-# print(sorted_names(queue=["Natasha", "Steve", "Eltran", "Natasha", "Rocket"]))
+    return sorted(queue)
